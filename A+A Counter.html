@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story - Days Together</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CUSTOMIZATION SECTION ===== */
+        :root {
+            --navy-blue: #1e3a8a;
+            --dark-navy: #1e293b;
+            --light-navy: #3b82f6;
+            --white: #ffffff;
+            --off-white: #f8fafc;
+            --black: #0f172a;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --shadow: rgba(30, 58, 138, 0.15);
+            --accent-shadow: rgba(30, 58, 138, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--off-white) 0%, var(--white) 50%, #e2e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating Hearts Animation */
+        .heart {
+            position: absolute;
+            color: var(--navy-blue);
+            font-size: 20px;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .heart:nth-child(odd) {
+            animation-delay: -2s;
+        }
+
+        .heart:nth-child(even) {
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+                opacity: 0.8;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 25px 70px var(--shadow), 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+            margin: 2rem;
+            border: 2px solid var(--navy-blue);
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header Section */
+        .header {
+            margin-bottom: 2rem;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 0.5rem;
+            animation: typewriter 2s steps(40) 0.5s both;
+            line-height: 1.2;
+        }
+
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Photo Section */
+        .photo-container {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .couple-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--navy-blue);
+            box-shadow: 0 10px 30px var(--accent-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .couple-photo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Counter Section */
+        .counter-section {
+            margin: 2.5rem 0;
+        }
+
+        .counter-container {
+            background: linear-gradient(135deg, var(--navy-blue), var(--dark-navy));
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 15px 40px var(--accent-shadow);
+        }
+
+        .counter-label {
+            font-size: 0.9rem;
+            color: var(--white);
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .counter-display {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--white);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .counter-time {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--white);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .counter-text {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            margin-right: 0.5rem;
+        }
+
+        .counter-separator {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0 0.3rem;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        /* Message Section */
+        .message {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            font-weight: 400;
+            line-height: 1.5;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(30, 58, 138, 0.2);
+        }
+
+        .couple-names {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 0.5rem;
+        }
+
+        .established {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .heart-icon {
+            color: var(--navy-blue);
+            font-size: 1.2rem;
+            margin: 0 0.5rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+
+            .title {
+                font-size: 2rem;
+            }
+
+            .counter-number {
+                font-size: 2.5rem;
+            }
+
+            .counter-time {
+                font-size: 1.2rem;
+            }
+
+            .counter-display {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.3rem;
+            }
+
+            .counter-separator {
+                display: none;
+            }
+
+            .couple-photo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.8rem;
+            }
+
+            .counter-number {
+                font-size: 2rem;
+            }
+
+            .counter-time {
+                font-size: 1rem;
+            }
+
+            .message {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts -->
+    <div class="heart" style="top: 10%; left: 10%;">❤️</div>
+    <div class="heart" style="top: 20%; right: 15%;">💕</div>
+    <div class="heart" style="top: 60%; left: 8%;">💖</div>
+    <div class="heart" style="bottom: 30%; right: 10%;">💗</div>
+    <div class="heart" style="bottom: 10%; left: 20%;">❤️</div>
+    <div class="heart" style="top: 40%; right: 5%;">💕</div>
+
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1 class="title">We've been falling for each other since April 27, 2025</h1>
+            <p class="subtitle">Every day with you feels like a beautiful dream come true</p>
+        </div>
+
+        <!-- Photo Section (Optional - uncomment and add your photo) -->
+        <!-- 
+        <div class="photo-container">
+            <img src="your-photo.jpg" alt="Us" class="couple-photo">
+        </div>
+        -->
+
+        <!-- Counter Section -->
+        <div class="counter-section">
+            <div class="counter-container">
+                <div class="counter-label">💕 Days of Love 💕</div>
+                <div class="counter-display">
+                    <span class="counter-number" id="daysCounter">0</span>
+                    <span class="counter-text">Days</span>
+                    <span class="counter-separator">•</span>
+                    <span class="counter-time" id="hoursCounter">0</span>
+                    <span class="counter-text">Hours</span>
+                    <span class="counter-separator">•</span>
+                    <span class="counter-time" id="minutesCounter">0</span>
+                    <span class="counter-text">Minutes</span>
+                    <span class="counter-separator">•</span>
+                    <span class="counter-time" id="secondsCounter">0</span>
+                    <span class="counter-text">Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Message Section -->
+        <div class="message">
+            "And every one of those days, you've made me smile. Here's to countless more memories, hand in hand, heart to heart. 💕"
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="couple-names">
+                <strong>Ananiya</strong> ❤️ <strong>Alice</strong>
+            </div>
+            <div class="established">
+                <em>Est. April 27, 2025</em>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== CUSTOMIZATION SECTION =====
+        // Change these values to personalize your website:
+        
+        const RELATIONSHIP_START_DATE = new Date('2025-04-27'); // YYYY-MM-DD format
+        const COUPLE_NAME_1 = 'Ananiya';
+        const COUPLE_NAME_2 = 'Alice';
+        const ESTABLISHED_DATE = 'April 27, 2025';
+
+        // You can also customize the header message and romantic message in the HTML above
+        
+        // ===== COUNTER LOGIC =====
+        function updateCounter() {
+            const now = new Date();
+            const timeDifference = now - RELATIONSHIP_START_DATE;
+            
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            
+            // Update the display
+            document.getElementById('daysCounter').textContent = days.toLocaleString();
+            document.getElementById('hoursCounter').textContent = hours;
+            document.getElementById('minutesCounter').textContent = minutes;
+            document.getElementById('secondsCounter').textContent = seconds;
+        }
+
+        // Update counter immediately and then every second
+        updateCounter();
+        setInterval(updateCounter, 1000);
+
+        // Update couple names and date in footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const coupleNamesElement = document.querySelector('.couple-names');
+            const establishedElement = document.querySelector('.established');
+            
+            coupleNamesElement.innerHTML = `<strong>${COUPLE_NAME_1}</strong> ❤️ <strong>${COUPLE_NAME_2}</strong>`;
+            establishedElement.innerHTML = `<em>Est. ${ESTABLISHED_DATE}</em>`;
+        });
+
+        // Add some interactive sparkle effects
+        document.addEventListener('click', function(e) {
+            createSparkle(e.clientX, e.clientY);
+        });
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.innerHTML = '✨';
+            sparkle.style.position = 'fixed';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            sparkle.style.fontSize = '20px';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '1000';
+            sparkle.style.animation = 'sparkleUp 1s ease-out forwards';
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        }
+
+        // Add sparkle animation
+        const sparkleStyle = document.createElement('style');
+        sparkleStyle.textContent = `
+            @keyframes sparkleUp {
+                0% {
+                    opacity: 1;
+                    transform: translateY(0) scale(0.5);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateY(-50px) scale(1);
+                }
+            }
+        `;
+        document.head.appendChild(sparkleStyle);
+    </script>
+</body>
+</html>
